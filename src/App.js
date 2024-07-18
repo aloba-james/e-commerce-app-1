@@ -1,25 +1,39 @@
-import logo from './logo.svg';
+import React from 'react';
+import { Route, Routes } from 'react-router-dom';
+import HomePage from './pages/HomePage';
+import ProductPage from './pages/ProductPage';
+import CartPage from './pages/CartPage';
+import LoginPage from './pages/LoginPage';
+import Header from './components/Layout/Header';
+import Footer from './components/Layout/Footer';
 import './App.css';
+import { useSelector } from 'react-redux';
+import UserPage from './pages/UserPage';
+import ScrollToTop from './ScrollToTop';
+import CheckoutPage from './pages/CheckoutPage';
 
-function App() {
+function App () {
+  const user  = useSelector((state) => state.auth.user);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+        <div className="flex flex-col min-h-screen">
+          <ScrollToTop />
+          <Header /> 
+          <main className="flex-grow container mx-auto px-4 py-6">
+            <Routes>
+              <Route exact path="/" element={<HomePage />} />
+              <Route path="/product/:productId" element={<ProductPage />} />
+              <Route path="/cart" element={<CartPage />} />
+              <Route path="/login" element={<LoginPage />} />
+              <Route path="/user" element={user ? <UserPage /> : <LoginPage />} />
+              <Route path='checkout' element={<CheckoutPage />} />
+              <Route path="*" element={<HomePage />} />
+            </Routes>
+          </main>
+          <Footer />
+        </div> 
+    </>
   );
-}
+};
 
 export default App;

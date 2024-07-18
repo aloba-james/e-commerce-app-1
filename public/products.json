@@ -1,0 +1,59 @@
+[
+    {
+      "id": 1,
+      "name": "Product 1",
+      "description": "Description for product 1",
+      "image": "https://i.ibb.co/tDFVJrF/1-1.jpg",
+      "price": 29.99
+    },
+    {
+      "id": 2,
+      "name": "Product 2",
+      "description": "Description for product 2",
+      "image": "https://i.ibb.co/CM63cdy/2.jpg",
+      "price": 49.99
+    },
+    {
+      "id": 3,
+      "name": "Product 3",
+      "description": "Description for product 3",
+      "image": "https://i.ibb.co/7NzCD8h/10.jpg",
+      "price": 19.99
+    },
+    {
+      "id": 4,
+      "name": "Product 4",
+      "description": "Description for product 4",
+      "image": "https://i.ibb.co/SfCxfjj/9.jpg",
+      "price": 39.99
+    },
+    {
+      "id": 5,
+      "name": "Product 5",
+      "description": "Description for product 5",
+      "image": "https://i.ibb.co/jJ8pTR8/7.jpg",
+      "price": 39.99
+    },
+    {
+      "id": 6,
+      "name": "Product 6",
+      "description": "Description for product 6",
+      "image": "https://i.ibb.co/gZSTtHN/6.jpg",
+      "price": 39.99
+    },
+    {
+      "id": 7,
+      "name": "Product 7",
+      "description": "Description for product 7",
+      "image": "https://i.ibb.co/THfhC5D/3.jpg",
+      "price": 39.99
+    },
+    {
+      "id": 8,
+      "name": "Product 8",
+      "description": "Description for product 8",
+      "image": "https://i.ibb.co/L1kdj3t/4.jpg",
+      "price": 39.99
+    }
+  ]
+  
