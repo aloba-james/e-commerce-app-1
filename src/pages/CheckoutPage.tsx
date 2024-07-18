@@ -16,8 +16,6 @@ const CheckoutPage: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Logic to handle form submission (e.g., API call, validation)
-    console.log('Form submitted!');
   };
 
   return (

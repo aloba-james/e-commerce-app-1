@@ -36,16 +36,16 @@ const Cart: React.FC = () => {
       {cartItems.length === 0 ? (
         <div>
           <p>Your cart is empty.</p>
-          <Link to="/shop">Continue Shopping</Link>
+          <Link to="/shop" className="text-blue-500 underline">Continue Shopping</Link>
         </div>
       ) : (
         <div>
           {cartItems.map((item: CartItem) => (
-            <div key={item.id} className="border p-2 mb-2">
-              <h3><Link to={`/product/${item.id}`}>{item.name}</Link></h3>
-              <p>${item.price}</p>
-              <p>Quantity: {item.quantity}</p>
-              <div className="flex items-center">
+            <div key={item.id} className="border p-3 mb-2">
+              <h3 className="text-lg mb-2"><Link to={`/product/${item.id}`} className='text-blue-500 hover:underline'>{item.name}</Link></h3>
+              <p className="mb-2">${item.price}</p>
+              <p className="mb-2">Quantity: {item.quantity}</p>
+              <div className="flex items-center ">
                 <button
                   onClick={() => handleDecrement(item.id)}
                   className="bg-gray-500 text-white p-1 mr-2"
@@ -69,8 +69,8 @@ const Cart: React.FC = () => {
             </div>
           ))}
           <div className="mb-4">
-            <p>Total Items: {totalCount}</p>
-            <p>Total Price: ${totalPrice.toFixed(2)}</p>
+            <p className='mb-2'>Total Items: {totalCount}</p>
+            <p className='mb-2'>Total Price: ${totalPrice.toFixed(2)}</p>
             <button className="bg-blue-500 text-white p-2" onClick={() => navigate('/checkout')}>Checkout</button>
           </div>
         </div>

@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { RootState } from '../store'; // Adjust the import path as needed
+import { RootState } from '../store'; 
 import { fetchUserData } from '../services/api';
+import { Link } from 'react-router-dom';
 
 interface User {
   username: string;
@@ -67,7 +68,7 @@ const UserPage: React.FC = () => {
                 <ul className="ml-4 list-disc">
                   {order.products.map(product => (
                     <li key={product.id}>
-                      {product.name} - Quantity: {product.quantity}
+                     <Link to={`/product/${product.id}`} className="text-blue-500 hover:underline">{product.name}</Link> - Quantity: {product.quantity}
                     </li>
                   ))}
                 </ul>

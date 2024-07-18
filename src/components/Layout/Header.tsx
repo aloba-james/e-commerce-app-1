@@ -9,7 +9,6 @@ const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const totalCount = useSelector((state: RootState) => state.cart.totalCount);
-  const isCartOpen = useSelector((state: RootState) => state.cart.isCartOpen);
   const user = useSelector((state: RootState) => state.auth.user);
 
   const handleScroll = () => {
@@ -46,7 +45,7 @@ const Header: React.FC = () => {
             <Link to='/login' className={`text-lg font-bold ${isScrolled ? 'text-white' : 'text-black'} hover:underline`}>Login</Link>
           )}
           <Link to='/cart' className={`text-lg font-bold ${isScrolled ? 'text-white' : 'text-black'} hover:underline`}>Cart ({totalCount})</Link>
-          {isCartOpen && <div className="cart-overlay"></div>}
+          
         </div>
       </div>
       <div className="md:hidden flex items-center">
@@ -59,9 +58,8 @@ const Header: React.FC = () => {
       <div className={`md:hidden ${isMenuOpen ? 'block' : 'hidden'} absolute top-14 left-0 right-0 ${isScrolled ? 'bg-black' : 'bg-white'} shadow-md rounded-lg py-4`}>
         <ul className="flex flex-col items-center gap-4">
           <li><Link to='/' className={`text-lg font-bold ${isScrolled ? 'text-white' : 'text-black'} hover:underline`} onClick={toggleMenu}>Home</Link></li>
-          <li><Link to='/shop' className={`text-lg font-bold ${isScrolled ? 'text-white' : 'text-black'} hover:underline`} onClick={toggleMenu}>Shop</Link></li>
-          <li><Link to='/about' className={`text-lg font-bold ${isScrolled ? 'text-white' : 'text-black'} hover:underline`} onClick={toggleMenu}>About</Link></li>
-          <li><Link to='/contact' className={`text-lg font-bold ${isScrolled ? 'text-white' : 'text-black'} hover:underline`} onClick={toggleMenu}>Contact</Link></li>
+          <li><Link to='/' className={`text-lg font-bold ${isScrolled ? 'text-white' : 'text-black'} hover:underline`} onClick={toggleMenu}>Men</Link></li>
+          <li><Link to='/' className={`text-lg font-bold ${isScrolled ? 'text-white' : 'text-black'} hover:underline`} onClick={toggleMenu}>Women</Link></li>
           {user ? (
             <li><Link to='/user' className={`text-lg font-bold ${isScrolled ? 'text-white' : 'text-black'} hover:underline`} onClick={toggleMenu}>Profile</Link></li>
           ) : (

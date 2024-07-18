@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { RootState, AppDispatch } from '../../store'; // Adjust the import path as needed
+import { RootState, AppDispatch } from '../../store';
 import { addItem } from '../../features/cart/cartSlice';
 
 interface Product {
-  id: string; // Changed to string to match with URL param
+  id: string;
   name: string;
   description: string;
   price: number;
@@ -18,16 +18,17 @@ interface CartItem extends Product {
 
 const ProductDetail: React.FC = () => {
   const { productId } = useParams<{ productId: string }>();
-  const product = useSelector((state: RootState) =>
-    state.products.items.find((item) => item.id === productId)
-  );
+  const products = useSelector((state: RootState) => state.products.items);
   const dispatch = useDispatch<AppDispatch>();
+
+  const product = products.find((item) => item.id.toString() === productId);
+
 
   const handleAddToCart = () => {
     if (product) {
       const cartItem: CartItem = {
         ...product,
-        quantity: 1 // Adding a default quantity of 1
+        quantity: 1
       };
       dispatch(addItem(cartItem));
     }
@@ -40,7 +41,7 @@ const ProductDetail: React.FC = () => {
   return (
     <div className="flex flex-wrap md:flex-nowrap justify-center md:justify-between w-full p-4">
       <div className="w-full md:w-1/2 lg:w-1/3 mb-8 md:mb-0">
-        <img src={product.image} alt={product.name} className="w-full h-auto object-cover rounded-lg shadow-lg" />
+        <img src={product.image} alt={product.name} className="w-full h-auto object-cover rounded-lg shadow-lg hover:opacity-75 hover:scale-105 transition duration-300" />
       </div>
       <div className="w-full md:w-1/2 lg:w-2/3 md:pl-8">
         <h2 className="text-3xl font-bold mb-4">{product.name}</h2>

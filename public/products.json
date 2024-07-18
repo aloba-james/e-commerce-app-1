@@ -1,59 +1,59 @@
 [
-    {
-      "id": 1,
-      "name": "Product 1",
-      "description": "Description for product 1",
-      "image": "https://i.ibb.co/tDFVJrF/1-1.jpg",
-      "price": 29.99
-    },
-    {
-      "id": 2,
-      "name": "Product 2",
-      "description": "Description for product 2",
-      "image": "https://i.ibb.co/CM63cdy/2.jpg",
-      "price": 49.99
-    },
-    {
-      "id": 3,
-      "name": "Product 3",
-      "description": "Description for product 3",
-      "image": "https://i.ibb.co/7NzCD8h/10.jpg",
-      "price": 19.99
-    },
-    {
-      "id": 4,
-      "name": "Product 4",
-      "description": "Description for product 4",
-      "image": "https://i.ibb.co/SfCxfjj/9.jpg",
-      "price": 39.99
-    },
-    {
-      "id": 5,
-      "name": "Product 5",
-      "description": "Description for product 5",
-      "image": "https://i.ibb.co/jJ8pTR8/7.jpg",
-      "price": 39.99
-    },
-    {
-      "id": 6,
-      "name": "Product 6",
-      "description": "Description for product 6",
-      "image": "https://i.ibb.co/gZSTtHN/6.jpg",
-      "price": 39.99
-    },
-    {
-      "id": 7,
-      "name": "Product 7",
-      "description": "Description for product 7",
-      "image": "https://i.ibb.co/THfhC5D/3.jpg",
-      "price": 39.99
-    },
-    {
-      "id": 8,
-      "name": "Product 8",
-      "description": "Description for product 8",
-      "image": "https://i.ibb.co/L1kdj3t/4.jpg",
-      "price": 39.99
-    }
-  ]
-  
+  {
+    "id": 1,
+    "name": "Women's Casual Shirt",
+    "description": "Comfortable and stylish casual shirt for everyday wear.",
+    "image": "https://i.ibb.co/tDFVJrF/1-1.jpg",
+    "price": 29.99
+  },
+  {
+    "id": 2,
+    "name": "Women's Denim Jeans",
+    "description": "Classic denim jeans that are perfect for any occasion.",
+    "image": "https://i.ibb.co/CM63cdy/2.jpg",
+    "price": 49.99
+  },
+  {
+    "id": 3,
+    "name": "Women's Sports Jacket",
+    "description": "Versatile sports jacket designed for comfort and performance.",
+    "image": "https://i.ibb.co/7NzCD8h/10.jpg",
+    "price": 19.99
+  },
+  {
+    "id": 4,
+    "name": "Women's Summer Dress",
+    "description": "Light and airy summer dress with a stylish floral pattern.",
+    "image": "https://i.ibb.co/SfCxfjj/9.jpg",
+    "price": 39.99
+  },
+  {
+    "id": 5,
+    "name": "Men's Formal Suit",
+    "description": "Elegant and sophisticated formal suit for special occasions.",
+    "image": "https://i.ibb.co/jJ8pTR8/7.jpg",
+    "price": 39.99
+  },
+  {
+    "id": 6,
+    "name": "Women's Active Leggings",
+    "description": "Stretchy and comfortable leggings designed for active lifestyles.",
+    "image": "https://i.ibb.co/gZSTtHN/6.jpg",
+    "price": 39.99
+  },
+  {
+    "id": 7,
+    "name": "Men's Winter Jacket",
+    "description": "Warm and durable winter jacket to keep you protected from the elements.",
+    "image": "https://i.ibb.co/THfhC5D/3.jpg",
+    "price": 39.99
+  },
+  {
+    "id": 8,
+    "name": "Women's Cozy Sweater",
+    "description": "Soft and cozy sweater for chilly days and cozy evenings.",
+    "image": "https://i.ibb.co/L1kdj3t/4.jpg",
+    "price": 39.99
+  }
+]
+

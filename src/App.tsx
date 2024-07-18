@@ -21,7 +21,7 @@ const App: React.FC = () => {
     <div className="flex flex-col min-h-screen">
       <ScrollToTop />
       <Header />
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<div className="flex-grow container mx-auto px-4 py-6">Loading...</div>}>
         <main className="flex-grow container mx-auto px-4 py-6">
           <Routes>
             <Route path="/" element={<Home />} />

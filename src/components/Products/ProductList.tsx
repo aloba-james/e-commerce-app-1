@@ -42,7 +42,7 @@ const ProductList: React.FC = () => {
       id: product.id,
       name: product.name,
       price: product.price,
-      quantity: 1 // Set initial quantity to 1
+      quantity: 1 
     };
     dispatch(addItem(cartItem));
   };
@@ -52,10 +52,10 @@ const ProductList: React.FC = () => {
       <h2 className="text-3xl font-bold mb-8">Products</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {products.map((product) => (
-          <div key={product.id} className="border rounded-lg p-4 shadow-lg flex flex-col">
+          <div key={product.id} className="border rounded-lg p-4 shadow-lg flex flex-col hover:shadow-2xl">
             <Link to={`/product/${product.id}`} className="mb-4">
-              <img src={product.image} alt={product.name} className="w-full h-50 object-cover" />
-              <h3 className="text-xl font-semibold mb-2">{product.name}</h3>
+              <img src={product.image} alt={product.name} className="w-full h-50 object-cover hover:opacity-75 transition duration-300 ease-in out rounded transform hover:scale-105 " />
+              <h3 className="text-xl font-semibold m-3 hover:text-blue-500 ">{product.name}</h3>
               <p className="text-gray-700">{product.description}</p>
               <p className="text-lg font-bold mt-2">${product.price.toFixed(2)}</p>
             </Link>
