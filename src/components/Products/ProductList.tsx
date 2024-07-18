@@ -1,18 +1,33 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getProducts } from '../../features/products/productsSlice';
 import { Link } from 'react-router-dom';
+import { RootState, AppDispatch } from '../../store';
+import { getProducts } from '../../features/products/productsSlice';
 import { addItem } from '../../features/cart/cartSlice';
 
-const ProductList = () => {
-  const dispatch = useDispatch();
-  const products = useSelector((state) => state.products.items);
-  const status = useSelector((state) => state.products.status);
-  const error = useSelector((state) => state.products.error);
+interface Product {
+  id: string;
+  name: string;
+  description: string;
+  price: number;
+  image: string;
+}
+
+interface CartItem extends Omit<Product, 'description' | 'image'> {
+  quantity: number;
+}
+
+const ProductList: React.FC = () => {
+  const dispatch = useDispatch<AppDispatch>();
+  const products = useSelector((state: RootState) => state.products.items);
+  const status = useSelector((state: RootState) => state.products.status);
+  const error = useSelector((state: RootState) => state.products.error);
 
   useEffect(() => {
-    dispatch(getProducts());
-  }, [dispatch]);
+    if (status === 'idle') {
+      dispatch(getProducts());
+    }
+  }, [dispatch, status]);
 
   if (status === 'loading') {
     return <p className="text-center text-xl">Loading...</p>;
@@ -22,8 +37,14 @@ const ProductList = () => {
     return <p className="text-center text-xl text-red-500">Error: {error}</p>;
   }
 
-  const handleAddToCart = (product) => {
-    dispatch(addItem(product));
+  const handleAddToCart = (product: Product) => {
+    const cartItem: CartItem = {
+      id: product.id,
+      name: product.name,
+      price: product.price,
+      quantity: 1 // Set initial quantity to 1
+    };
+    dispatch(addItem(cartItem));
   };
 
   return (

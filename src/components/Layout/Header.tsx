@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { RootState } from 'src/store';
 
-const Header = () => {
+
+
+const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const totalCount = useSelector((state) => state.cart.totalCount);
-  const isCartOpen = useSelector((state) => state.cart.isCartOpen);
-  const user = useSelector((state) => state.auth.user);
+  const totalCount = useSelector((state: RootState) => state.cart.totalCount);
+  const isCartOpen = useSelector((state: RootState) => state.cart.isCartOpen);
+  const user = useSelector((state: RootState) => state.auth.user);
 
   const handleScroll = () => {
     setIsScrolled(window.scrollY > 0);
@@ -72,3 +75,4 @@ const Header = () => {
 };
 
 export default Header;
+

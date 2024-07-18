@@ -1,12 +1,20 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { RootState } from '../store';
 
-const CheckoutPage = () => {
-  const cart = useSelector(state => state.cart);
-  const { items: products , totalCount, totalAmount } = cart;
+interface Product {
+  id: number;
+  name: string;
+  quantity: number;
+  price: number;
+}
 
-  const handleSubmit = (e) => {
+const CheckoutPage: React.FC = () => {
+  const cart = useSelector((state: RootState) => state.cart);
+  const { items, totalCount, totalPrice } = cart;
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     // Logic to handle form submission (e.g., API call, validation)
     console.log('Form submitted!');
@@ -20,7 +28,7 @@ const CheckoutPage = () => {
       <div className="mb-8">
         <h2 className="text-xl font-bold mb-2">Order Summary</h2>
         <div className="border-t border-b border-gray-300 py-4">
-          {products.map(product => (
+          {items.map((product) => (
             <div key={product.id} className="flex items-center justify-between py-2">
               <p>{product.name} - Quantity: {product.quantity}</p>
               <p>${product.price * product.quantity}</p>
@@ -29,7 +37,7 @@ const CheckoutPage = () => {
         </div>
         <div className="flex justify-between mt-4">
           <p className="text-lg font-bold">Total:</p>
-          <p className="text-lg font-bold">${totalAmount}</p>
+          <p className="text-lg font-bold">${totalPrice}</p>
         </div>
       </div>
 

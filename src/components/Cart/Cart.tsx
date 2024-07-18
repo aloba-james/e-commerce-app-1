@@ -1,23 +1,32 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { addItem, decrementItem, removeItem } from '../../features/cart/cartSlice';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { RootState } from '../../store';
 
-const Cart = () => {
-  const cartItems = useSelector((state) => state.cart.items);
-  const totalCount = useSelector((state) => state.cart.totalCount);
-  const totalPrice = useSelector((state) => state.cart.totalPrice);
+interface CartItem {
+  id: string;
+  name: string;
+  price: number;
+  quantity: number;
+}
+
+const Cart: React.FC = () => {
+  const cartItems = useSelector((state: RootState) => state.cart.items);
+  const totalCount = useSelector((state: RootState) => state.cart.totalCount);
+  const totalPrice = useSelector((state: RootState) => state.cart.totalPrice);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-  const handleRemoveItem = (id) => {
+  const handleRemoveItem = (id: string) => {
     dispatch(removeItem({ id }));
   };
 
-  const handleIncrement = (item) => {
+  const handleIncrement = (item: CartItem) => {
     dispatch(addItem(item));
   };
 
-  const handleDecrement = (id) => {
+  const handleDecrement = (id: string) => {
     dispatch(decrementItem({ id }));
   };
 
@@ -29,11 +38,9 @@ const Cart = () => {
           <p>Your cart is empty.</p>
           <Link to="/shop">Continue Shopping</Link>
         </div>
-
       ) : (
         <div>
-         
-          {cartItems.map((item) => (
+          {cartItems.map((item: CartItem) => (
             <div key={item.id} className="border p-2 mb-2">
               <h3><Link to={`/product/${item.id}`}>{item.name}</Link></h3>
               <p>${item.price}</p>
@@ -61,10 +68,10 @@ const Cart = () => {
               </div>
             </div>
           ))}
-           <div className="mb-4">
+          <div className="mb-4">
             <p>Total Items: {totalCount}</p>
             <p>Total Price: ${totalPrice.toFixed(2)}</p>
-            <button className="bg-blue-500 text-white p-2 ">Checkout</button>
+            <button className="bg-blue-500 text-white p-2" onClick={() => navigate('/checkout')}>Checkout</button>
           </div>
         </div>
       )}

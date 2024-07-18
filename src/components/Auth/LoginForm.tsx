@@ -1,15 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, FormEvent } from 'react';
 import { useDispatch } from 'react-redux';
 import { login } from '../../features/auth/authSlice';
 import { useNavigate } from 'react-router-dom';
 
-const LoginForm = () => {
+interface LoginFormProps {}
+
+const LoginForm: React.FC<LoginFormProps> = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     dispatch(login({ username }));
     navigate('/');

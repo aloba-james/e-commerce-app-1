@@ -1,6 +1,20 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-const initialState = {
+interface CartItem {
+  id: string;
+  name: string;
+  price: number;
+  quantity: number;
+}
+
+interface CartState {
+  items: CartItem[];
+  totalCount: number;
+  totalPrice: number;
+  isCartOpen: boolean;
+}
+
+const initialState: CartState = {
   items: [],
   totalCount: 0,
   totalPrice: 0,
@@ -11,7 +25,7 @@ const cartSlice = createSlice({
   name: 'cart',
   initialState,
   reducers: {
-    addItem: (state, action) => {
+    addItem: (state, action: PayloadAction<CartItem>) => {
       const existingItem = state.items.find(item => item.id === action.payload.id);
       if (existingItem) {
         existingItem.quantity += 1;
@@ -21,7 +35,7 @@ const cartSlice = createSlice({
       state.totalCount += 1;
       state.totalPrice += action.payload.price;
     },
-    decrementItem: (state, action) => {
+    decrementItem: (state, action: PayloadAction<{ id: string }>) => {
       const existingItem = state.items.find(item => item.id === action.payload.id);
       if (existingItem) {
         existingItem.quantity -= 1;
@@ -32,7 +46,7 @@ const cartSlice = createSlice({
         }
       }
     },
-    removeItem: (state, action) => {
+    removeItem: (state, action: PayloadAction<{ id: string }>) => {
       const itemToRemove = state.items.find(item => item.id === action.payload.id);
       if (itemToRemove) {
         state.totalCount -= itemToRemove.quantity;
@@ -49,5 +63,5 @@ const cartSlice = createSlice({
   },
 });
 
-export const { addItem, decrementItem, removeItem } = cartSlice.actions;
+export const { addItem, decrementItem, removeItem, openCart, closeCart } = cartSlice.actions;
 export default cartSlice.reducer;
